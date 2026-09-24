@@ -38,6 +38,29 @@ gentle nonlinear shaping, dynamic sag and active three-band voicing; a
 fixed open-back 2×12 cabinet response follows it. The only shared detector
 is the sag envelope, so stereo inputs are never summed or crossed.
 
+## Why it is designed to leave room in a patch
+
+Stock Zoom amp models can reserve a very large share of a patch's DSP budget:
+for example, their descriptors list **74.75%** for `FD COMBO` and **95.26%**
+for `DELUXE-R`. SilverSt takes a deliberately compact route while retaining
+an amp and cabinet in one block:
+
+- small IIR filter sections model the voice and cabinet rather than a loaded
+  IR or convolution engine;
+- no delay lines, reverb, oversampling, model/cab selector, or alternative
+  output paths;
+- **256 B** of persistent working state, with no sample-buffer queue or
+  dynamic allocation;
+- true-stereo processing throughout, with complementary mic/cab responses
+  creating Width without a Haas delay.
+
+The current audio loop measures approximately **212 static cycles per sample**.
+That makes SilverSt lighter by design than a feature-matrix amp model and is
+intended to leave practical room for modulation, delay or reverb after it.
+The final DSP admission percentage is firmware-dependent and has not yet been
+measured on a physical pedal, so this is not presented as a guaranteed loading
+claim.
+
 ## Source
 
 The pedal DSP source and build manifests are in
