@@ -1,0 +1,22 @@
+{
+  "effect_name": "SilverSt",
+  "comment": "Original clean American-style true-stereo amp + permanently active 2x12 open-back cab. Renderer reference: tools/audio_preview/renderers/silverst.py. No commercial amp, cab, or IR is copied.",
+  "audio_func_name": "Fx_DLY_SilverSt",
+  "gid": 8,
+  "gid_comment": "0x08 Delay. MS-70CDR firmware does not enumerate custom GuitarAmp (gid=4) ZDLs; all custom releases use Delay for compatibility and a consistent catalog.",
+  "fxid": 505,
+  "fxid_comment": "Reserved after custom IDs 450-471; patch ID is checked by verify_silverst.py.",
+  "fxid_version": "1.00", "flags_byte": 1,
+  "params": [
+    {"name":"Gain", "max":100, "default":25, "comment":"Headroom through soft edge-of-breakup."},
+    {"name":"Width", "max":100, "default":30, "comment":"Complementary L/R cabinet microphone responses; no delay or phase trick."},
+    {"name":"Level", "max":100, "default":60, "comment":"Post-cab output level."},
+    {"name":"Bass", "max":100, "default":50, "comment":"Active low band."},
+    {"name":"Middl", "max":100, "default":50, "comment":"Active mid band."},
+    {"name":"Trebl", "max":100, "default":50, "comment":"Active high band."},
+    {"name":"Reson", "max":100, "default":45, "comment":"Power-stage/speaker low damping."},
+    {"name":"Prese", "max":100, "default":50, "comment":"Pre-cab upper-mid attack."},
+    {"name":"Mic", "max":100, "default":35, "comment":"Center/bright to edge/warm cabinet microphone position."}
+  ],
+  "audio_nop": false
+}
